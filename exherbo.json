@@ -1,0 +1,44 @@
+{
+  "builders": [
+    {
+      "type": "qemu",
+      "iso_url": "https://osdn.net/frs/redir.php?m=dotsrc&f=%2Fstorage%2Fg%2Fs%2Fsy%2Fsystemrescuecd%2Freleases%2F6.0.2%2Fsystemrescuecd-6.0.2.iso",
+      "iso_checksum": "faf22d057c79f9903b60639046663e44",
+      "iso_checksum_type": "md5",
+      "output_directory": "exherbo",
+      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+      "disk_size": 10000,
+      "format": "qcow2",
+      "cpus": 8,
+      "memory": 8096,
+      "accelerator": "kvm",
+      "ssh_username": "root",
+      "ssh_password": "packer",
+      "ssh_timeout": "20m",
+      "vm_name": "exherbo",
+      "net_device": "virtio-net",
+      "disk_interface": "virtio",
+      "boot_wait": "2s",
+      "boot_command": [
+        "<enter><wait10>",
+        "<enter><wait10><wait10>",
+        "passwd<enter><wait>",
+        "packer<enter><wait>packer<enter>"
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "environment_vars": [
+        "STAGE3={{user `stage3`}}"
+      ],
+      "scripts": [
+        "scripts/partition.sh",
+        "scripts/stage.sh",
+        "scripts/paludis.sh",
+        "scripts/chroot.sh"
+      ],
+      "type": "shell"
+    }
+  ]
+}
