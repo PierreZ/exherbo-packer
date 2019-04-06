@@ -29,6 +29,4 @@ Contributing are welcome! Just create some issues and/or pull requests ❤️
 
 ## TODO
 
-* Variables
-* Split chroot scripts
 * Better kernel config (we do not need gpu/floppy/whatever modules)

@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "kernel": "5.0.5"
+  },
   "builders": [
     {
       "type": "qemu",
@@ -30,13 +33,16 @@
   "provisioners": [
     {
       "environment_vars": [
-        "STAGE3={{user `stage3`}}"
+        "KERNEL={{user `kernel`}}"
       ],
       "scripts": [
         "scripts/partition.sh",
         "scripts/stage.sh",
-        "scripts/paludis.sh",
-        "scripts/chroot.sh"
+        "scripts/chroot_prepare.sh",
+        "scripts/chroot_env.sh",
+        "scripts/chroot_kernel.sh",
+        "scripts/chroot_paludis.sh",
+        "scripts/chroot_boot.sh"
       ],
       "type": "shell"
     }
