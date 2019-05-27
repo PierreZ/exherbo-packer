@@ -7,7 +7,6 @@ Packer build for [Exherbo](http://exherbo.org)
 This packer build will create an ISO with the following configurations:
 
 * latest stable linux kernel
-* single btrfs partition
 * SystemD
 
 Please not that it is a work-in-progress project ;)

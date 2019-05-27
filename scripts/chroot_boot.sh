@@ -5,6 +5,7 @@ chroot /mnt /bin/bash -ex<<EOF
 grub-install /dev/vda
 grub-mkconfig -o /boot/grub/grub.cfg
 cat /boot/grub/grub.cfg
+blkid
 
 EOF
 # bootctl install

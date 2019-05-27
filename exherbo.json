@@ -18,7 +18,7 @@
       "ssh_username": "root",
       "ssh_password": "packer",
       "ssh_timeout": "20m",
-      "vm_name": "exherbo",
+      "vm_name": "exherbo.qcow2",
       "net_device": "virtio-net",
       "disk_interface": "virtio",
       "boot_wait": "2s",

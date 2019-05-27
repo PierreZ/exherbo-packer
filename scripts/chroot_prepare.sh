@@ -7,5 +7,5 @@ mount -t proc none /mnt/proc/
 cat <<EOF > /mnt/etc/paludis/options.conf
 */* build_options: jobs=7
 */* targets: i686-pc-linux-gnu
-*/* btrfs dbus man-pages xattr
+*/* dbus man-pages xattr
 EOF
